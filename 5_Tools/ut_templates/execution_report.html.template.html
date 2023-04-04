@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet"> -->
+        <!--<link href="https://fonts.googleapis.com/css?family=Roboto:700&display=swap" rel="stylesheet">-->
+        <style media="all" type="text/css">
+            body {
+                font-family: "Roboto Condensed", Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+                font-weight: 300;
+                border: 0;
+                margin: 0;
+                padding: 0;
+                line-height: 1.5;
+            }
+            .custom-title {
+                font-family: "Roboto", Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+            }
+            .main {
+                border-top: 1px solid #ccc;
+                width: auto;
+                margin-left: auto;
+                margin-right: auto;
+                overflow: hidden;
+                padding-top: 25px;
+            }
+            .main-inner {
+                overflow: hidden;
+                width: 100%;
+                max-width: 1400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .report-zone {
+                box-sizing: border-box;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 1100px;
+                float: left;
+                padding-left:20px;
+                padding-bottom:20px;
+                padding-right:20px;
+                color: #3a3a3a;
+                min-width: 880px;
+            }
+            .left-menu {
+                border-radius: 10px;
+                box-sizing: border-box;
+                width:20%;
+                margin-left: auto;
+                margin-right: auto;
+                float: left;
+                min-width:220px;
+                padding:20px;
+                background-color: #f5f5f5;
+            }
+            .left-menu dt {
+                width:100%;
+            }
+            .site-header {
+                position: relative;
+            }
+            .inside-header {
+                max-width: 1100px;
+                padding: 10px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .ficosa-header {
+                width: 15%;
+            }
+            .header-image {
+                width:100%;
+                vertical-align: middle;
+            }
+            .inner2 {
+                white-space: nowrap;
+                color: #666666;
+                line-height:20px;
+                padding: 2px 0px 2px 20px;
+            }
+            .inner {
+                white-space: nowrap;
+                color: #666666;
+                line-height:20px;
+            }
+            .inner a, inner a:visited, .inner2 a, inner2 a:visited {
+                color: #666666;
+            }
+            .inner a:hover, .inner2 a:hover {
+                color: #000;
+            }
+            .dt-border {
+                border-bottom: 1px solid #ccc;
+            }
+            .site-footer {
+                clear:both;
+                color:#ffffff;
+                background-color:#222222;
+                padding: 20px;
+                font-size: 15px;
+            }
+            .footer-inside {
+                max-width: 1100px;
+                box-sizing: border-box;
+                text-align: center;
+                font-size: 15px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 20px;
+                width:100%;
+            }
+            .ficosa-inside {
+                padding-left: 10px;
+                padding-right: 10px;
+                color: #646464;
+                width:100%
+            }
+            .contact-inside {
+                padding-left: 10px;
+                padding-right: 10px;
+                color: #646464;
+                width:100%
+            }
+            a, a:visited, a:hover {
+                text-decoration: none;
+            }
+            .contact-inside a {
+                color: #646464;
+            }
+            .contact-inside a:hover {
+                color: #ccc;
+                font-weight: 500;
+                text-decoration: none;
+            }
+            .contact-inside a:visited {
+                color: #646464;
+                font-weight: 500;
+                text-decoration: none;
+            }
+            .img_media {
+                height: auto;
+                max-width: 7%;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: inherit;
+                font-size: 100%;
+                font-style: inherit;
+                font-weight: inherit;
+            }
+            h2 {
+                margin-bottom: 20px;
+                line-height: 1.2em;
+                font-weight: 300;
+                text-transform: none;
+                font-size: 25px;
+            }
+            h1 {
+                font-size: 35px;
+                margin-bottom: 20px;
+                margin-top: 0px;
+                line-height: 1.2em;
+                font-weight: 300;
+                text-transform: none;
+            }
+            h3 {
+                color: #999;
+                font-weight: 400;
+                margin-bottom: 10px;
+                font-size: 20px;
+                line-height: 1.2em;
+                text-transform: none;
+            }
+            dl {
+                margin: 0;
+            }
+        </style>
+        <style>
+            .statistics {
+                width: 100%;
+                max-width: 65em;
+                border-collapse: collapse;
+                empty-cells: show;
+                margin-bottom: 1em;
+                margin: auto;
+                table-layout:fixed;
+            }
+            .statistics tr:hover {
+                background: #f4f4f4;
+            }
+            .statistics th, .statistics td {
+                border: 1px solid #ccc;
+                padding: 0.1em 0.3em;
+            }
+            .statistics th {
+                background-color: #ddd;
+                padding: 0.2em 0.3em;
+                text-align: center;
+            }
+            .statistics td {
+                vertical-align: middle;
+                text-align: center;
+                padding:0.2em;
+            }
+            .graph {
+                border: 1px solid #ccc;
+                width: auto;
+                height: 7px;
+                padding: 0;
+                background: #e60000;
+            }
+            .pass-bar {
+                float: left;
+                height: 100%;
+                background: #0c0;
+            }
+            .justified-bar {
+                float: left;
+                height: 100%;
+                background: #3f3;
+            }
+            .disabled-bar {
+                float: left;
+                height: 100%;
+                background: #666;
+            }
+        </style>
+        <style>
+           .test_base {
+                text-align: center;
+                min-width:50px;
+                padding: 2px 5px;
+                font-size: 1em;
+                border-radius: 3px;
+                float:right;
+                float:right;
+                color:#000;
+            }
+            .test_ok {
+                background-color:#0c0;
+            }
+            .test_fail {
+                background-color:#e60000;
+            }
+            .test_disabled {
+                background-color:#262626;
+                color:#ffffff;
+            }
+        </style>
+        <style>
+            input {
+              position: absolute;
+              opacity: 0;
+              z-index: -1;
+            }
+
+            .row {
+                display: -webkit-box;
+                display: flex;
+            }
+            .row .col {
+                -webkit-box-flex: 1;
+                flex: 1;
+            }
+            .row .col:last-child {
+                margin-left: 1em;
+            }
+
+            /* Accordion styles */
+            .tabs {
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+                border: 1px solid #ccc;
+            }
+
+            .tab {
+                width: 100%;
+                color: white;
+                overflow: hidden;
+                border-bottom: 1px solid #ccc;
+            }
+            .tab-label {
+                display: -webkit-box;
+                display: flex;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+                padding: 0.4em;
+                background: #eee;
+                color:#444;
+                cursor: pointer;
+                /* Icon */
+            }
+            .tab-label:hover {
+                background: #ccc;
+            }
+            .tab-label::after {
+                content: "\276F";
+                width: 1em;
+                height: 1em;
+                text-align: center;
+                -webkit-transition: all .35s;
+                transition: all .35s;
+            }
+            .tab-content {
+                max-height: 0;
+                padding: 0 1em;
+                color: #2c3e50;
+                background: white;
+                -webkit-transition: all .35s;
+                transition: all .35s;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-decoration: none;
+            }
+            .tab-content-flex {
+                display: flex;
+            }
+            .tab-content a, .tab-content a:visited, .tab-content a:hover, .tab-content a:active {
+                text-decoration: none;
+                color: #444;
+            }
+            .tab-content p {
+                text-decoration: none;
+                color: #444;
+                word-wrap: break-word;      /* IE 5.5-7 */
+                white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+                white-space: pre-wrap;      /* current browsers */
+            }
+            input:checked + .tab-label {
+                background: #cccc;
+            }
+            input:checked + .tab-label::after {
+              -webkit-transform: rotate(90deg);
+                      transform: rotate(90deg);
+            }
+            input:checked ~ .tab-content {
+                max-height: 100vh;
+                padding: 0.4em;
+                border-bottom: 1px solid #ccc;
+            }
+        </style>
+    </head>
+    <body >
+        <header class="site-header">
+            <div class="inside-header">
+                <div class="ficosa-header">
+                <a href="https://www.ficosa.com" title="Ficosa" rel="home"><img class="header-image" src="img/cropped-ficosa.png" alt="Ficosa" title="Ficosa" style="max-height: 33px"></a>
+                </div>
+            </div>
+        </header>
+        <div class="main">
+            <h1><center>{{gtest.get('swcomp')}} Unit Test Plan</center></h1>
+            <div class="main-inner">
+                <div class="left-menu">
+                    <dl>
+                        <dt class="dt-border"><span class="inner"><a href="#ReportSummary"><span>Report summary</span></a></span></dt>
+                        <dl>
+                            <dt class="dt-border"><span class="inner2"><a href="#TestInformation"><span>Test information</span></a></span></dt>
+                            <dt class="dt-border"><span class="inner2"><a href="#TestResult"><span>Test result</span></a></span></dt>
+                            <dt class="dt-border"><span class="inner2"><a href="#CoverageResult"><span>Coverage result</span></a></span></dt>
+                        </dl>
+                        <dt class="dt-border"><span class="inner"><a href="#TestSuitesSummary"><span>Test suites summary</span></a></span></dt>
+                        <dt class="dt-border"><span class="inner"><a href="#TestDetail"><span>Test detail</span></a></span></dt>
+                        <dt class="dt-border"><span class="inner"><a href="#CoverageDetail"><span>Coverage detail</span></a></span></dt>
+                        <dl>
+                            <dt class="dt-border"><span class="inner2"><a href="#FileCoverage"><span>File coverage</span></a></span></dt>
+                            <dt class="dt-border"><span class="inner2"><a href="#RoutineCoverage"><span>Routine coverage</span></a></span></dt>
+                        </dl>
+                    </dl>
+                </div>
+                <div class="report-zone">
+                    <h2 id="ReportSummary">REPORT SUMMARY</h2>
+                    <h3 id="TestInformation">Test information</h3>
+                    <b><span style="font-weight: bold;">SW component:</span> </b>{{gtest.get('swcomp')}}</br>
+                    <b><span style="font-weight: bold;">Execution date:</span> </b>{{gtest.get('timestamp')}}</br>
+                    <b><span style="font-weight: bold;">Execution time:</span> </b>{{gtest.get('time')}}s</br>
+                    <b><span style="font-weight: bold;">Coverage metric:</span> </b>{{gtest.get('coveragemetric')}}</br>
+                    <h3 id="TestResult">Test result</h3>
+{% set tests = gtest.get('tests')| int %}
+{% set disabled = gtest.get('disabled')| int %}
+{% set error = gtest.get('errors')| int %}
+{% set failed = gtest.get('failures')| int %}
+{% set errorfailed = error+failed %}
+{% set pass = tests-errorfailed-disabled %}
+{% set disabled_ratio = (disabled/tests)*100 %}
+{% set pass_ratio = (pass/tests)*100 %}
+                    <p>
+                        <table class="statistics">
+                            <col width="15%">
+                            <col width="15%">
+                            <col width="15%">
+                            <col width="15%">
+                            <tr>
+                                <th title="Total"><div>Total</div></th>
+                                <th title="Pass"><div>Pass</div></th>
+                                <th title="Disabled"><div>Disabled</div></th>
+                                <th title="Fail"><div>Fail</div></th>
+                                <th title="Pass / Fail"><div>Pass / Disabled / Fail</div></th>
+                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td><div>{{tests}}</div></td>
+                                    <td><div>{{pass}}</div></td>
+                                    <td><div>{{disabled}}</div></td>
+                                    <td><div>{{errorfailed}}</div></td>
+                                    <td><div class="graph"><div class="pass-bar" style="width: {{pass_ratio}}%"></div><div class="disabled-bar" style="width: {{disabled_ratio}}%"></div></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+                    <h3 id="CoverageResult">Coverage result</h3>
+{% set coverage_value = coverage.find('GlobalStatistic').find('Item').find('ItemStatistic').find('ItemStatisticValue').text| float %}
+{% set coverage_ratio = coverage_value*100 %}
+{% set justification_value = coverage.find('GlobalStatistic').find('Item').find('ItemStatistic').find('ItemStatisticJustified').text| float %}
+{% set justification_ratio = justification_value*100 %}
+{% set total = coverage_ratio+justification_ratio %}
+                    <p>
+                        <table class="statistics">
+                            <col width="20%">
+                            <col width="20%">
+                            <col width="20%">
+                            <tr>
+                                <th title="Total"><div>Total</div></th>
+                                <th title="Achieved"><div>Achieved</div></th>
+                                <th title="Justified"><div>Justified</div></th>
+                                <th title="Achieved / Justified / Left"><div>Achieved / Justified / Left</div></th>
+                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td><div>{{'%0.2f' %total}}%</div></td>
+                                    <td><div>{{'%0.2f' %coverage_ratio}}%</div></td>
+                                    <td><div>{{'%0.2f' %justification_ratio}}%</div></td>
+                                    <td><div class="graph"><div class="pass-bar" style="width: {{coverage_ratio}}%"></div><div class="justified-bar" style="width: {{justification_ratio}}%"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+                    <h2 id="TestSuitesSummary">TEST SUITES SUMMARY</h2>
+                    <div class="tabs">
+{% for gtest_suite in gtest.findall('testsuite') %}
+    {% set gtest_suite_tests = gtest_suite.get('tests')| int %}
+    {% set gtest_suite_disabled = gtest_suite.get('disabled')| int %}
+    {% set gtest_suite_error = gtest_suite.get('errors')| int %}
+    {% set gtest_suite_failed = gtest_suite.get('failures')| int %}
+    {% set gtest_suite_errorfailed = gtest_suite_error+gtest_suite_failed %}
+    {% set gtest_suite_pass = gtest_suite_tests-gtest_suite_errorfailed-gtest_suite_disabled %}
+                        <div class="tab">
+                            <input type="checkbox" id="{{gtest_suite.get('name')}}">
+                            <label class="tab-label" for="{{gtest_suite.get('name')}}">
+                                <div style="flex: 1; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" >{{gtest_suite.get('name')}}</div>
+                                <div class="test_base"><b>{{gtest_suite.get('time')}}s</b></div>
+    {% if gtest_suite_errorfailed > 0 %}
+                                <div class="test_base test_fail"><b>{{gtest_suite_errorfailed}}</b></div>
+    {% endif %}
+    {% if gtest_suite_pass > 0 %}
+                                <div class="test_base test_ok"><b>{{gtest_suite_pass}}</b></div>
+    {% endif %}
+    {% if gtest_suite_disabled > 0 %}
+                                <div class="test_base test_disabled"><b>{{gtest_suite_disabled}}</b></div>
+    {% endif %}
+                                <div style="width:20px"></div>
+                            </label>
+    {% for gtest_test in gtest_suite.findall('testcase') %}
+                            <div class="tab-content tab-content-flex">
+                                <div style="flex: 1; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+                                    <a href="#{{gtest_test.get('name')}}">{{gtest_test.get('name')}}</a>
+                                </div>
+        {% if gtest_test.get('status') == 'notrun' %}
+                                <div class="test_base test_disabled"><b>Disabled</b></div>
+        {% else %}
+            {% if gtest_test.find('failure') is none %}
+                                <div class="test_base test_ok"><b>Pass</b></div>
+            {% else %}
+                                <div class="test_base test_fail"><b>Failed</b></div>
+            {% endif %}
+        {% endif %}
+                            </div>
+    {% endfor %}
+                        </div>
+{% endfor %}
+                    </div>
+                    <h2 id="TestDetail">TEST DETAIL</h2>
+{% for gtest_suite in gtest.findall('testsuite') %}
+                    <h3>{{gtest_suite.get('name')}}</h3>
+                    <div class="tabs">
+    {% for gtest_test in gtest_suite.findall('testcase') %}
+                        <div class="tab">
+                            <input type="checkbox" id="{{gtest_test.get('name')}}">
+                            <label class="tab-label" for="{{gtest_test.get('name')}}">
+                                <div style="flex: 1; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" >{{gtest_test.get('name')}}</div>
+                                <div class="test_base"><b>{{gtest_test.get('time')}}s</b></div>
+        {% if gtest_test.get('status') == 'notrun' %}
+                                <div class="test_base test_disabled"><b>Disabled</b></div>
+        {% else %}
+            {% if gtest_test.find('failure') is none %}
+                                <div class="test_base test_ok"><b>Pass</b></div>
+            {% else %}
+                                <div class="test_base test_fail"><b>Failed</b></div>
+            {% endif %}
+        {% endif %}
+                                <div style="width:20px"></div>
+                            </label>
+                            <div class="tab-content">
+        {% if gtest_test.get('description') is not none %}
+                                <p><span style="font-weight: bold;">Description: </span>{{gtest_test.get('description')}}</p>
+        {% endif %}
+                                <p><span style="font-weight: bold;">Req. tested: </span>{{gtest_test.get('requirements')}}</p>
+                                <p><span style="font-weight: bold;">Conditions: </span>{{gtest_test.get('conditions')}}</p>
+                                <p><span style="font-weight: bold;">Action: </span>{{gtest_test.get('action')}}</p>
+                                <p><span style="font-weight: bold;">Expected result: </span>{{gtest_test.get('expected')}}</p>
+        {% if gtest_test.get('justified_text') is not none %}
+                                <p><span style="font-weight: bold;">Justification: </span>{{gtest_test.get('justified_text')}}</p>
+        {% endif %}
+        {% if gtest_test.find('failure') is not none %}
+                                <p><span style="font-weight: bold;">Error:</br></span>{{gtest_test.find('failure').get('message')}}</p>
+        {% endif %}
+                            </div>
+                        </div>
+    {% endfor %}
+                    </div>
+{% endfor %}
+                    <h2 id="CoverageDetail">COVERAGE DETAIL</h2>
+                    <h3 id="FileCoverage">File coverage</h3>
+                    <p>
+                        <table class="statistics">
+                            <col width="45%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <tr>
+                                <th title="Source file"><div>Total</div></th>
+                                <th title="Total"><div>Total</div></th>
+                                <th title="Achieved"><div>Achieved</div></th>
+                                <th title="Justified"><div>Justified</div></th>
+                                <th title="Achieved / Justified / Left"><div>Achieved / Justified / Left</div></th>
+                            </tr>
+                            <tbody>
+{% for coverage_source in coverage.find('SourcesStatistics').findall('Item') %}
+    {% set coverage_value = coverage_source.find('ItemStatistic').find('ItemStatisticValue').text| float %}
+    {% set coverage_ratio = coverage_value*100 %}
+    {% set justification_value = coverage_source.find('ItemStatistic').find('ItemStatisticJustified').text| float %}
+    {% set justification_ratio = justification_value*100 %}
+    {% set total = coverage_ratio+justification_ratio %}
+                                <tr>
+                                    <td><div>{{coverage_source.find('ItemSource').text}}</div></td>
+                                    <td><div>{{'%0.2f' %total}}%</div></td>
+                                    <td><div>{{'%0.2f' %coverage_ratio}}%</div></td>
+                                    <td><div>{{'%0.2f' %justification_ratio}}%</div></td>
+                                    <td><div class="graph"><div class="pass-bar" style="width: {{coverage_ratio}}%"></div><div class="justified-bar" style="width: {{justification_ratio}}%"></div></td>
+                                </tr>
+{% endfor %}
+                            </tbody>
+                        </table>
+                    </p>
+                    <h3 id="RoutineCoverage">Routine coverage</h3>
+                    <p>
+                        <table class="statistics">
+                            <col width="45%">
+                            <col width="10%">
+                            <col width="10%">
+                            <col width="10%">
+                            <tr>
+                                <th title="Routine"><div>Total</div></th>
+                                <th title="Total"><div>Total</div></th>
+                                <th title="Achieved"><div>Achieved</div></th>
+                                <th title="Justified"><div>Justified</div></th>
+                                <th title="Achieved / Justified / Left"><div>Achieved / Justified / Left</div></th>
+                            </tr>
+                            <tbody>
+{% for coverage_method in coverage.find('MethodStatistics').findall('Item') %}
+    {% set coverage_value = coverage_method.find('ItemStatistic').find('ItemStatisticValue').text| float %}
+    {% set coverage_ratio = coverage_value*100 %}
+    {% if coverage_method.find('ItemJustification') is not none %}
+        {% set justification_value = 1-coverage_method.find('ItemStatistic').find('ItemStatisticValue').text| float %}
+    {% else %}
+        {% set justification_value = 0 %}
+    {% endif %}
+    {% set justification_ratio = justification_value*100 %}
+    {% set total = coverage_ratio+justification_ratio %}
+                                <tr>
+                                    <td><div>{{coverage_method.find('ItemFunction').find('ItemFunctionScopedName').text}}</div></td>
+                                    <td><div>{{'%0.2f' %total}}%</div></td>
+                                    <td><div>{{'%0.2f' %coverage_ratio}}%</div></td>
+                                    <td><div>{{'%0.2f' %justification_ratio}}%</div></td>
+                                    <td><div class="graph"><div class="pass-bar" style="width: {{coverage_ratio}}%"></div><div class="justified-bar" style="width: {{justification_ratio}}%"></div></td>
+                                </tr>
+{% endfor %}
+                            </tbody>
+                        </table>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer">
+            <div class="footer-inside">
+                <div class="ficosa-inside">&copy; 2020 Ficosa Internacional SA</div>
+                <div class="contact-inside"><a href="https://www.ficosa.com/company/global-presence/">Contact</a></div>
+            </div>
+        </footer>
+    </body>
+</html>

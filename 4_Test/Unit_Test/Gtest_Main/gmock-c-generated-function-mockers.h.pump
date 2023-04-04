@@ -1,0 +1,43 @@
+$$ -*- mode: c++; -*-
+$$ This is a Pump source file.  Please use Pump to convert it to
+$$ gmock-c-generated-function-mockers.h.
+$$
+$var n = 15  $$ The maximum arity we support.
+// Author: carlos.gadea@ficosa.com
+
+// This file extends Google Mock to be able to generate C wrappers
+// needed to be able to test c code with the Google Test and
+// Google Mock framework.
+// This file implements function mockers of various arities.
+
+#ifndef GMOCK_INCLUDE_GMOCK_GMOCK_C_GENERATED_FUNCTION_MOCKERS_H_
+#define GMOCK_INCLUDE_GMOCK_GMOCK_C_GENERATED_FUNCTION_MOCKERS_H_
+
+#include <assert.h>
+#include "gmock/gmock.h"
+
+$range i 0..n
+$for i [[
+$range j 1..i
+$var arg_as = [[$for j, \
+      [[GMOCK_ARG_(tn, $j, __VA_ARGS__) gmock_a$j]]]]
+$var as = [[$for j, [[gmock_a$j]]]]
+// INTERNAL IMPLEMENTATION - DON'T USE IN USER CODE!!!
+#define CMOCK_METHOD$i[[]]_(instance, tn, Method, ...) \
+  extern "C" { \
+    GMOCK_RESULT_(tn, __VA_ARGS__) Method( $arg_as ) { \
+      assert((( instance != NULL ) && "UT error: You have to add a mock \
+object of type "#instance" to your test class.")); \
+      return instance->Method($as); \
+    } \
+  }
+
+]]
+
+$for i [[
+#define CMOCK_METHOD$i(instance, Method, ...) CMOCK_METHOD$i[[]]_(instance, , Method, __VA_ARGS__)
+
+]]
+
+#endif  // GMOCK_INCLUDE_GMOCK_GMOCK_C_GENERATED_FUNCTION_MOCKERS_H_
+

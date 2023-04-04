@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<node name="/com/idneo/ublox">
+    <interface name="com.idneo.ublox"> 
+        <method name="getVersion"> 
+            <arg type="s" name="value" direction="out" />
+        </method>
+
+        <!--Signal-->
+        <signal name="ubloxState">
+          <arg type="s" name="status"/>
+        </signal>
+        <signal name="NmeaNewFrames">
+          <arg type="s" name="value"/>
+        </signal>
+    </interface>
+</node>
